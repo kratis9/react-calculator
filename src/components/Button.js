@@ -1,21 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import store from "../store";
+import { keyPressSelected, updateCalculations } from "../reducers";
 
-function Button({ content, onButtonClick, type }) {
-    return (
-        <div
-            className={`btn ${content === "0" ? "zero" : ""} ${type || ""}`}
-            onClick={() => onButtonClick(content)}
-        >
-            {content}
-        </div>
-    );
+function Button({ content, type }) {
+  return (
+    <div
+      className={`btn ${content === "0" ? "zero" : ""} ${type || ""}`}
+      onClick={(e) => {
+        store.dispatch(keyPressSelected(e.target.innerText));
+        if (e.target.innerText === "=") {
+          store.dispatch(updateCalculations());
+        }
+      }}>
+      {content}
+    </div>
+  );
 }
 
 Button.propTypes = {
-    content: PropTypes.string.isRequired,
-    onButtonClick: PropTypes.func.isRequired,
-    type: PropTypes.string
+  content: PropTypes.string.isRequired,
+  onButtonClick: PropTypes.func.isRequired,
+  type: PropTypes.string,
 };
 
-export default Button;
+export default connect((state) => state, {
+  keyPressSelected,
+  updateCalculations,
+})(Button);

@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./Button";
+import Button from "../Button";
 import PropTypes from "prop-types";
 
 export const standardControls = [
@@ -24,7 +24,7 @@ export const standardControls = [
   { content: "=", type: "operator" },
 ];
 
-function StandardKeypad({ handleSelection }) {
+function StandardKeypad() {
   return (
     <div className='btn-container'>
       {standardControls.map((control) => {
@@ -32,7 +32,6 @@ function StandardKeypad({ handleSelection }) {
           <Button
             key={control.content}
             content={control.content}
-            onButtonClick={(e) => handleSelection(e)}
             type={control.type}
           />
         );
@@ -40,8 +39,5 @@ function StandardKeypad({ handleSelection }) {
     </div>
   );
 }
-StandardKeypad.prototype = {
-  handleSelection: PropTypes.func.isRequired,
-};
 
 export default StandardKeypad;

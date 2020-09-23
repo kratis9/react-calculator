@@ -37,7 +37,6 @@ body {
   align-items: center;
   background: #333;
   border-radius: 50%;
-  cursor: pointer;
   display: flex;
   height: 80px;
   justify-content: center;
@@ -74,6 +73,40 @@ body {
   height: 6rem;
   line-height: 6rem;
 }
+
+.App a {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+}
+
+.cal-history {
+  min-width: 370px;
+  min-height: 100vh;
+}
+
+.cal-history-item {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  margin: 20px 0;
+
+}
+
+.cal-history-item .answer {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cal-history-item .expression {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0;
+}
+
 
 .scientific-keypad {
   display: flex;

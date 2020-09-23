@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./Button";
+import Button from "../Button";
 import PropTypes from "prop-types";
 import { standardControls } from "./StandardKeypad";
 
@@ -9,10 +9,10 @@ const controls = [
   { content: "mc", type: "function" },
   { content: "m+", type: "function" },
   { content: "m-", type: "" },
-  { content: "mr", type: "function" },
+  { content: "mr", type: "" },
   { content: "EC", type: "" },
-  { content: "Sqrt", type: "" },
-  { content: "Cube", type: "" },
+  { content: "sqrt", type: "" },
+  { content: "cube", type: "" },
   { content: "sin", type: "" },
   { content: "cos", type: "" },
   { content: "tan", type: "" },
@@ -23,10 +23,10 @@ const controls = [
   { content: "log", type: "" },
   { content: "EE", type: "" },
   { content: "TT", type: "" },
-  { content: "Log10", type: "" },
+  { content: "x^2", type: "" },
 ];
 
-function ScientificKeypad({ handleSelection }) {
+function ScientificKeypad() {
   return (
     <div className='scientific-keypad'>
       <div className='btn-container'>
@@ -35,7 +35,6 @@ function ScientificKeypad({ handleSelection }) {
             <Button
               key={control.content}
               content={control.content}
-              onButtonClick={(e) => handleSelection(e)}
               type={control.type}
             />
           );
@@ -47,7 +46,6 @@ function ScientificKeypad({ handleSelection }) {
             <Button
               key={control.content}
               content={control.content}
-              onButtonClick={(e) => handleSelection(e)}
               type={control.type}
             />
           );
@@ -57,9 +55,5 @@ function ScientificKeypad({ handleSelection }) {
     </div>
   );
 }
-
-ScientificKeypad.prototype = {
-  handleSelection: PropTypes.func.isRequired,
-};
 
 export default ScientificKeypad;

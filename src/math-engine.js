@@ -35,7 +35,7 @@ class MathEngine {
     return {
       operandX: this.previousNumber,
       operandY: this.number,
-      operator: this.previousOperation,
+      operator: this.repeatOperation,
       answer: this.repeatNumber,
     };
   }

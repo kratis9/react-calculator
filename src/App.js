@@ -1,50 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Calculator from "./components/Calculator";
+import CalHistory from "./components/CalHistory";
 
-import Display from "./components/Display";
-import Keypad from "./components/Keypad";
-import MatchEngine from "./math-engine";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      history: [],
-      display: "0",
-      engine: new MatchEngine(),
-    };
-
-    this.onKeyPress = this.onKeyPress.bind(this);
-  }
-
-  onKeyPress(key) {
-    this.setState({
-      display: this.state.engine.calculate(key),
-    });
-
-    // if (key === "=") {
-    //   this.updateHistory();
-    // }
-  }
-
-  updateHistory() {
-    const expression = this.state.engine.getExpression();
-    if (expression) {
-      this.setState({
-        ...this.state,
-        history: [...this.state.history, this.state.engine.getExpression()],
-      });
-    }
-  }
-
-  render() {
-    const { display } = this.state;
-    return (
-      <div className='App'>
-        <Display display={display} />
-        <Keypad onKeyPress={this.onKeyPress} />
+const App = () => (
+  <div className='App'>
+    <Router>
+      <div>
+        <Route exact path='/' component={Calculator} />
+        <Route exact path='/calculator' component={Calculator} />
+        <Route exact path='/history' component={CalHistory} />
       </div>
-    );
-  }
-}
+    </Router>
+  </div>
+);
 
 export default App;
