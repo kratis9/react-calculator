@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Display from "./components/Display";
+import Keypad from "./components/Keypad";
+import MatchEngine from "./math-engine";
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      history: [],
+      display: "0",
+      engine: new MatchEngine(),
+    };
+
+    this.onKeyPress = this.onKeyPress.bind(this);
+  }
+
+  onKeyPress(key) {
+    this.setState({
+      display: this.state.engine.calculate(key),
+    });
+
+    // if (key === "=") {
+    //   this.updateHistory();
+    // }
+  }
+
+  updateHistory() {
+    const expression = this.state.engine.getExpression();
+    if (expression) {
+      this.setState({
+        ...this.state,
+        history: [...this.state.history, this.state.engine.getExpression()],
+      });
+    }
+  }
+
+  render() {
+    const { display } = this.state;
+    return (
+      <div className='App'>
+        <Display display={display} />
+        <Keypad onKeyPress={this.onKeyPress} />
+      </div>
+    );
+  }
 }
 
 export default App;
