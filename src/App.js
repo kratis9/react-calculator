@@ -5,7 +5,7 @@ import CalHistory from "./components/CalHistory";
 
 
 const App = () => (
-  <div className='App'>
+  <div className='app'>
     <Router>
       <div>
         <Route exact path='/' component={Calculator} />

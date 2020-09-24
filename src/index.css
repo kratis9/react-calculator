@@ -5,7 +5,7 @@ body {
 
 }
 
-.App {
+.app {
   background: black;
   border-radius: 0.5rem;
   width: fit-content;
@@ -33,20 +33,17 @@ body {
 }
 
 .btn {
-  font-size: 2rem;
-  align-items: center;
-  background: #333;
-  border-radius: 50%;
-  display: flex;
-  height: 80px;
   justify-content: center;
-  width: 80px;
-  transition: filter 0.3s ease-in;
-}
-
-.btn:active,
-.btn:focus {
-  filter: brightness(120%);
+  display: flex;
+  align-items: center;
+  border-radius: 55px;
+  background: #333;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  padding: .8rem 1rem;
+  overflow: hidden;
 }
 
 .btn.zero {
@@ -74,16 +71,16 @@ body {
   line-height: 6rem;
 }
 
-.App a {
+.app a {
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
   color: white;
-  font-size: 25px;
+  font-size: 2.5rem;
 }
 
 .cal-history {
-  min-width: 370px;
+  min-width: 80vw;
   min-height: 100vh;
 }
 

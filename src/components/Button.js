@@ -6,7 +6,8 @@ import { keyPressSelected, updateCalculations } from "../reducers";
 
 function Button({ content, type }) {
   return (
-    <div
+    <button
+      type="button"
       className={`btn ${content === "0" ? "zero" : ""} ${type || ""}`}
       onClick={(e) => {
         store.dispatch(keyPressSelected(e.target.innerText));
@@ -15,7 +16,7 @@ function Button({ content, type }) {
         }
       }}>
       {content}
-    </div>
+    </button>
   );
 }
 
