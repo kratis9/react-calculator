@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "../Button";
-import PropTypes from "prop-types";
 
 export const standardControls = [
   { content: "AC", type: "function" },

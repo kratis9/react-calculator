@@ -1,11 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-
 import { useMediaQuery } from "react-responsive";
+
 import StandardKeypad from "./StandardKeypad";
 import ScientificKeypad from "./ScientificKeypad";
-import { updateDisplay } from "../../reducers";
 
 const Mobile = ({ children }) => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -16,7 +13,7 @@ const Default = ({ children }) => {
   return isNotMobile ? children : null;
 };
 
-function Keypad({ updateDisplay }) {
+export default function Keypad() {
   return (
     <>
       <Default>
@@ -29,9 +26,3 @@ function Keypad({ updateDisplay }) {
     </>
   );
 }
-
-Keypad.propTypes = {
-  onKeyPress: PropTypes.func.isRequired,
-};
-
-export default connect((state) => state, updateDisplay)(Keypad);

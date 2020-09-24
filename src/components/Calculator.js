@@ -3,7 +3,6 @@ import Display from "./Display";
 import Keypad from "./keypad/Keypad";
 import Navigation from "./Navigation";
 
-//action dispatcher
 const Calculator = () => {
   return (
     <div>

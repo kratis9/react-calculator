@@ -317,12 +317,3 @@ class MathEngine {
 }
 
 export default MathEngine;
-
-export const isOperand = (key) => {
-  return !isOperator(key);
-};
-export const isOperator = (key) => {
-  const operators = ["+", "-", "=", "/", "*", "%"];
-  return operators.indexOf(key) > -1;
-};
-export const hasDecimalPoint = (number) => {};
